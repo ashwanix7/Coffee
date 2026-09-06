@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* ============================================================
+   CROUSTILLE DESIGN SYSTEM — CSS VARIABLES
+   ============================================================ */
+
+:root {
+  /* Brand Colors */
+  --color-coffee-dark: #59090C;
+  /* Deep Burgundy (Primary) */
+  --color-coffee: #7A0C10;
+  /* Lighter Burgundy */
+  --color-coffee-mid: #93191D;
+  --color-cream: #FAF4EB;
+  /* Warm Cream */
+  --color-beige: #F0E6D8;
+  --color-caramel: #8C2226;
+  /* Darker accent (previously caramel) */
+  --color-caramel-light: #A8363A;
+  --color-matcha: #6b7c45;
+  --color-matcha-light: #8a9e5a;
+  --color-tea: #b5864a;
+  --color-white: #FCF9F5;
+  /* Off-white */
+  --color-black: #1A0304;
+  /* Very dark burgundy for text/contrast */
+  --color-text-primary: #1A0304;
+  --color-text-secondary: #59090C;
+  --color-text-muted: #824749;
+
+  /* Typography
+   * --font-display / --font-serif → Allura (elegant script — headings, brand)
+   * --font-body / --font-sans    → Montserrat (clean modern — body, nav, buttons)
+   */
+  --font-display: 'Allura', cursive;
+  --font-serif: 'Allura', cursive;
+  /* alias so existing var(--font-serif) picks up Allura */
+  --font-body: 'Montserrat', sans-serif;
+  --font-sans: 'Montserrat', sans-serif;
+  /* alias so existing var(--font-sans) picks up Montserrat */
+
+  /* Spacing */
+  --section-padding: clamp(4rem, 8vw, 8rem);
+  --container-max: 1440px;
+  --container-padding: clamp(1.5rem, 5vw, 5rem);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Script font for all major headings */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+/* Montserrat for all interactive / readable elements */
+p,
+span,
+a,
+button,
+input,
+select,
+textarea,
+nav,
+li,
+label {
+  font-family: var(--font-body);
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-body);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ============================================================
+   FOCUS / ACCESSIBILITY
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-caramel);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-caramel);
+  border-radius: 3px;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

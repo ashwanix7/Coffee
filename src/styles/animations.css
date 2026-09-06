@@ -1,0 +1,197 @@
+/* ============================================================
+   CROUSTILLE ANIMATIONS
+   ============================================================ */
+
+/* Fade in up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Marquee scroll */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 126, 58, 0.3); }
+  50% { box-shadow: 0 0 0 12px rgba(192, 126, 58, 0); }
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Utility classes */
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Delay utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* Coffee showcase section */
+.showcase-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Product image transition */
+.product-enter {
+  opacity: 0;
+  transform: translateX(80px) scale(0.95);
+}
+.product-enter-active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.product-exit {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+.product-exit-active {
+  opacity: 0;
+  transform: translateX(-80px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Reveal on scroll (GSAP will handle the actual animation) */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Nav transition */
+.nav-link-underline {
+  position: relative;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-caramel);
+  transition: width var(--transition-base);
+}
+.nav-link-underline:hover::after,
+.nav-link-underline.active::after {
+  width: 100%;
+}
+
+/* Menu overlay */
+.menu-overlay {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Image zoom on hover */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Card hover lift */
+.card-hover {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(26, 10, 0, 0.12);
+}
